@@ -19,3 +19,31 @@ btn.addEventListener("click", ()=>{
     background.style.backgroundColor = Color;
     colorDisplay.style.color = Color;
 })
+
+let menu = document.querySelector(".menu-container .menu");
+let checkBox = document.querySelector("#check-box");
+let menuIcon = document.querySelector("#menu-icon");
+
+window.addEventListener("load", () => {
+    checkBox.checked = false;
+    menu.style.display = "none";
+})
+
+checkBox.addEventListener("change", () => {
+    if(checkBox.checked){
+        menu.style.display = "block";
+    }
+    else{
+        menu.style.display = "none";
+    }
+})
+
+function handleResize(){
+    if(window.innerWidth > 640){
+        checkBox.checked = false;
+        menu.style.display = "none";
+    }
+}
+
+handleResize(); // initial check
+window.addEventListener("resize", handleResize);
